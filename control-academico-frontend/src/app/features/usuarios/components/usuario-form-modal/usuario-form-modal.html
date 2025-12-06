@@ -1,0 +1,59 @@
+@if (visible) {
+<!-- Fondo -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
+  <!-- Contenedor modal -->
+  <div class="w-full max-w-md bg-white rounded-2xl shadow-xl p-6">
+    <div class="mb-4 flex items-center justify-between">
+      <h2 class="text-lg font-semibold text-slate-800">
+        {{ titulo }}
+      </h2>
+      <button type="button" class="text-slate-400 hover:text-slate-600" (click)="onCancelar()">
+        ✕
+      </button>
+    </div>
+
+    <div class="space-y-4">
+      <div>
+        <label class="text-sm font-medium text-slate-700 block mb-1">
+          Nombre completo
+        </label>
+        <input type="text" [(ngModel)]="form.nombre" name="nombre" class="w-full border rounded-lg px-3 py-2 text-sm
+                   border-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500"
+          placeholder="Nombre del usuario" />
+      </div>
+
+      <div>
+        <label class="text-sm font-medium text-slate-700 block mb-1">
+          Correo
+        </label>
+        <input type="email" [(ngModel)]="form.correo" name="correo" class="w-full border rounded-lg px-3 py-2 text-sm
+                   border-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500"
+          placeholder="correo@ejemplo.com" />
+      </div>
+
+      <div>
+        <label class="text-sm font-medium text-slate-700 block mb-1">
+          Rol
+        </label>
+        <select [(ngModel)]="form.rol" name="rol" class="w-full border rounded-lg px-3 py-2 text-sm
+                   border-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500">
+          <option value="">Selecciona un rol</option>
+          <option value="administrador">Administrador</option>
+          <option value="docente">Docente</option>
+          <option value="estudiante">Estudiante</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="mt-6 flex justify-end gap-2">
+      <button type="button" class="px-4 py-2 text-sm text-slate-600 hover:text-slate-800" (click)="onCancelar()">
+        Cancelar
+      </button>
+      <button type="button" class="px-4 py-2 rounded-full bg-sky-600 text-white text-sm font-medium
+                 hover:bg-sky-700 transition-colors" (click)="onGuardar()">
+        Guardar
+      </button>
+    </div>
+  </div>
+</div>
+}

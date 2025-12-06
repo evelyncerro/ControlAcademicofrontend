@@ -1,0 +1,12 @@
+
+@import "tailwindcss";
+
+/* @import "primeng/resources/primeng.css"; */
+@import "primeicons/primeicons.css";
+
+
+.p-button {
+  border-radius: 9999px !important;
+}
+
+

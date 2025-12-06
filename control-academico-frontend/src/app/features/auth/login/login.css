@@ -1,0 +1,11 @@
+/* Corrige alineación de iconos en p-iconfield */
+:host ::ng-deep .p-iconfield {
+  display: flex;
+  align-items: center;
+}
+
+:host ::ng-deep .p-iconfield .p-input-icon {
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  margin-left: 0.75rem;
+}

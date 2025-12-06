@@ -1,0 +1,81 @@
+@if (visible) {
+  <div class="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
+    <div class="w-full max-w-md bg-white rounded-2xl shadow-xl p-6">
+      <div class="mb-4 flex items-center justify-between">
+        <h2 class="text-lg font-semibold text-slate-800">
+          {{ titulo }}
+        </h2>
+        <button
+          type="button"
+          class="text-slate-400 hover:text-slate-600"
+          (click)="onCancelar()"
+        >
+          ✕
+        </button>
+      </div>
+
+      <div class="space-y-4">
+        <div>
+          <label class="text-sm font-medium text-slate-700 block mb-1">
+            Nombre de la asignatura
+          </label>
+          <input
+            type="text"
+            [(ngModel)]="form.nombre"
+            name="nombre"
+            class="w-full border rounded-lg px-3 py-2 text-sm
+                   border-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500"
+            placeholder="Nombre de la asignatura"
+          />
+        </div>
+
+        <div>
+          <label class="text-sm font-medium text-slate-700 block mb-1">
+            Código
+          </label>
+          <input
+            type="text"
+            [(ngModel)]="form.codigo"
+            name="codigo"
+            class="w-full border rounded-lg px-3 py-2 text-sm
+                   border-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500"
+            placeholder="Código de la asignatura"
+          />
+        </div>
+
+        <div>
+          <label class="text-sm font-medium text-slate-700 block mb-1">
+            Máx. clases por semana
+          </label>
+          <input
+            type="number"
+            min="1"
+            [(ngModel)]="form.maxClasesSemana"
+            name="maxClasesSemana"
+            class="w-full border rounded-lg px-3 py-2 text-sm
+                   border-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500"
+            placeholder="Número máximo de clases por semana"
+          />
+        </div>
+      </div>
+
+      <div class="mt-6 flex justify-end gap-2">
+        <button
+          type="button"
+          class="px-4 py-2 text-sm text-slate-600 hover:text-slate-800"
+          (click)="onCancelar()"
+        >
+          Cancelar
+        </button>
+        <button
+          type="button"
+          class="px-4 py-2 rounded-full bg-sky-600 text-white text-sm font-medium
+                 hover:bg-sky-700 transition-colors"
+          (click)="onGuardar()"
+        >
+          Guardar
+        </button>
+      </div>
+    </div>
+  </div>
+}

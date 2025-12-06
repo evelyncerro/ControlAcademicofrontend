@@ -1,0 +1,98 @@
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-sky-100 via-slate-100 to-sky-200">
+  <div class="w-full max-w-4xl mx-4 grid md:grid-cols-2 gap-0 bg-white/90 rounded-3xl shadow-2xl overflow-hidden">
+
+    <!-- LADO IZQUIERDO: branding / info -->
+    <div class="hidden md:flex flex-col justify-between bg-gradient-to-br from-sky-500 via-sky-600 to-indigo-600 p-8 text-white">
+      <div>
+        <div class="inline-flex items-center gap-3 bg-white/10 rounded-full px-4 py-1 text-xs tracking-wide uppercase">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          Panel académico
+        </div>
+
+        <h2 class="mt-6 text-3xl font-semibold leading-tight">
+          Organiza tus <span class="text-emerald-200">usuarios</span>,
+          <br />asignaturas y horarios
+        </h2>
+
+        <p class="mt-4 text-sm text-sky-100/90">
+          Visualiza la agenda semanal, administra la información de los estudiantes
+          y mantén el horario académico siempre bajo control.
+        </p>
+      </div>
+
+      <div class="mt-8 space-y-2 text-xs text-sky-100/80">
+        <p class="font-semibold text-sky-50">Cuentas de prueba</p>
+        <p>Admin: <span class="font-mono">admin@demo.com</span> / <span class="font-mono">admin123</span></p>
+        <p>Estudiante: <span class="font-mono">estudiante@demo.com</span> / <span class="font-mono">123456</span></p>
+      </div>
+    </div>
+
+
+    <div class="p-8 md:p-10 flex flex-col justify-center">
+
+      <div class="flex justify-center mb-6">
+        <div class="w-14 h-14 rounded-2xl bg-sky-100 flex items-center justify-center shadow-inner">
+          <span class="text-sky-600 font-bold text-xl tracking-tight">CA</span>
+        </div>
+      </div>
+
+      <h1 class="text-2xl font-semibold text-center mb-1 text-slate-900">
+        Control Académico
+      </h1>
+      <p class="text-sm text-slate-500 text-center mb-8">
+        Inicia sesión para gestionar usuarios, asignaturas y horarios
+      </p>
+
+      <form (ngSubmit)="iniciarSesion()" class="space-y-5">
+
+        <div class="flex items-center gap-2 w-full">
+          <i class="pi pi-envelope text-slate-500 text-lg"></i>
+
+          <input
+            type="email"
+            pInputText
+            [(ngModel)]="correo"
+            name="correo"
+            required
+            class="w-full"
+            placeholder="Correo electronico"
+          />
+        </div>
+
+
+        <div class="flex items-center gap-2 w-full">
+          <i class="pi pi-lock text-slate-500 text-lg"></i>
+
+          <input
+            type="password"
+            pPassword
+            [feedback]="false"
+            [(ngModel)]="clave"
+            name="clave"
+            required
+            class="w-full"
+            placeholder="Contraseña"
+          />
+        </div>
+
+
+
+          <p-message *ngIf="error" severity="error" [text]="error"></p-message>
+
+          <button
+            pButton
+            type="submit"
+            label="Ingresar"
+            class="w-full mt-4 h-11 rounded-full font-semibold text-white
+                  !bg-gradient-to-r !from-sky-500 !to-sky-600
+                  hover:!from-sky-600 hover:!to-sky-700
+                  !border-none !shadow-md hover:!shadow-xl
+                  transition-all duration-200 ease-in-out active:scale-[0.98]"
+          >
+          </button>
+      </form>
+
+
+    </div>
+  </div>
+</div>

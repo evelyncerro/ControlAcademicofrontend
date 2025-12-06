@@ -1,0 +1,130 @@
+@if (visible) {
+  <!-- Fondo -->
+  <div class="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
+    <!-- Contenedor modal -->
+    <div class="w-full max-w-md bg-white rounded-2xl shadow-xl p-6">
+      <div class="mb-4 flex items-center justify-between">
+        <h2 class="text-lg font-semibold text-slate-800">
+          {{ titulo }}
+        </h2>
+        <button
+          type="button"
+          class="text-slate-400 hover:text-slate-600"
+          (click)="onCancelar()"
+        >
+          ✕
+        </button>
+      </div>
+
+      <div class="space-y-4">
+        <!-- Día -->
+        <div>
+          <label class="text-sm font-medium text-slate-700 block mb-1">
+            Día
+          </label>
+          <select
+            [(ngModel)]="form.dia"
+            name="dia"
+            class="w-full border rounded-lg px-3 py-2 text-sm
+                   border-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500"
+          >
+            <option value="">Seleccione un día</option>
+            <option value="Lunes">Lunes</option>
+            <option value="Martes">Martes</option>
+            <option value="Miércoles">Miércoles</option>
+            <option value="Jueves">Jueves</option>
+            <option value="Viernes">Viernes</option>
+            <option value="Sábado">Sábado</option>
+          </select>
+        </div>
+
+        <!-- Hora inicio -->
+        <div>
+          <label class="text-sm font-medium text-slate-700 block mb-1">
+            Hora inicio
+          </label>
+          <input
+            type="time"
+            [(ngModel)]="form.horaInicio"
+            name="horaInicio"
+            class="w-full border rounded-lg px-3 py-2 text-sm
+                   border-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500"
+          />
+        </div>
+
+        <!-- Hora fin -->
+        <div>
+          <label class="text-sm font-medium text-slate-700 block mb-1">
+            Hora fin
+          </label>
+          <input
+            type="time"
+            [(ngModel)]="form.horaFin"
+            name="horaFin"
+            class="w-full border rounded-lg px-3 py-2 text-sm
+                   border-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500"
+          />
+        </div>
+
+        <!-- Usuario -->
+        <div>
+          <label class="text-sm font-medium text-slate-700 block mb-1">
+            Usuario
+          </label>
+          <select
+            [(ngModel)]="form.idUsuario"
+            name="idUsuario"
+            class="w-full border rounded-lg px-3 py-2 text-sm
+                   border-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500"
+          >
+            <option value="0">Seleccione un usuario</option>
+            @for (usuario of usuarios; track usuario.id) {
+              <option [value]="usuario.id">
+                {{ usuario.nombre }}
+              </option>
+            }
+          </select>
+        </div>
+
+        <!-- Asignatura -->
+        <div>
+          <label class="text-sm font-medium text-slate-700 block mb-1">
+            Asignatura
+          </label>
+          <select
+            [(ngModel)]="form.idAsignatura"
+            name="idAsignatura"
+            class="w-full border rounded-lg px-3 py-2 text-sm
+                   border-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500"
+          >
+            <option value="0">Seleccione una asignatura</option>
+            @for (asignatura of asignaturas; track asignatura.id) {
+              <option [value]="asignatura.id">
+                {{ asignatura.nombre }}
+              </option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div class="mt-6 flex justify-end gap-2">
+        <button
+          type="button"
+          class="px-4 py-2 text-sm text-slate-600 hover:text-slate-800"
+          (click)="onCancelar()"
+        >
+          Cancelar
+        </button>
+
+        <button
+          type="button"
+          class="px-4 py-2 rounded-full bg-sky-600 text-white text-sm font-medium
+                 hover:bg-sky-700 transition-colors"
+          (click)="onGuardar()"
+        >
+          Guardar
+        </button>
+      </div>
+    </div>
+  </div>
+}
